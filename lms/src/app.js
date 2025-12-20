@@ -68,7 +68,7 @@ function Dashboard() {
     }
     async function loadLessons() {
       try {
-        let result = await jacSpawn(null, "list_lessons", {});
+        let result = await __jacSpawn("list_lessons", "", {});
         if (result && result.reports) {
           setLessons(result.reports[0]);
         }
@@ -340,11 +340,11 @@ function Progress() {
         if (!username || username === "") {
           username = "guest";
         }
-        let resultAttempts = await jacSpawn(null, "get_user_attempts", {"user_id": username});
+        let resultAttempts = await __jacSpawn("get_user_attempts", "", {"user_id": username});
         if (resultAttempts && resultAttempts.reports) {
           setAttempts(resultAttempts.reports[0]);
         }
-        let resultSkills = await jacSpawn(null, "get_user_skills", {"user_id": username});
+        let resultSkills = await __jacSpawn("get_user_skills", "", {"user_id": username});
         if (resultSkills && resultSkills.reports) {
           setSkills(resultSkills.reports[0]);
         }

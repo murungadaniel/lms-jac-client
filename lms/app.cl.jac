@@ -260,7 +260,8 @@ def Dashboard() -> any {
         };
         async def loadLessons() -> None {
             try {
-                result = await jacSpawn(None, "list_lessons", {});
+                # result = await jacSpawn(None, "list_lessons", {});
+                result = await root spawn list_lessons();
                 if result and result.reports {
                     setLessons(result.reports[0]);
                 };
@@ -696,13 +697,15 @@ def Progress() -> any {
                 if not username or username == "" { username = "guest"; };
                 
                 # Load Attempts
-                resultAttempts = await jacSpawn(None, "get_user_attempts", {"user_id": username});
+                #resultAttempts = await jacSpawn(None, "get_user_attempts", {"user_id": username});
+                resultAttempts = await root spawn get_user_attempts(user_id=username);
                 if resultAttempts and resultAttempts.reports {
                     setAttempts(resultAttempts.reports[0]);
                 };
                 
                 # Load Skills
-                resultSkills = await jacSpawn(None, "get_user_skills", {"user_id": username});
+                #resultSkills = await jacSpawn(None, "get_user_skills", {"user_id": username});
+                resultSkills = await root spawn get_user_skills(user_id=username);
                 if resultSkills and resultSkills.reports {
                     setSkills(resultSkills.reports[0]);
                 };

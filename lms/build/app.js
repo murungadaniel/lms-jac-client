@@ -387,7 +387,7 @@ function Dashboard() {
             case 0:
               _context3.p = 0;
               _context3.n = 1;
-              return jacSpawn(null, "list_lessons", {});
+              return __jacSpawn("list_lessons", "", {});
             case 1:
               result = _context3.v;
               if (result && result.reports) {
@@ -1466,7 +1466,7 @@ function Progress() {
                 username = "guest";
               }
               _context9.n = 1;
-              return jacSpawn(null, "get_user_attempts", {
+              return __jacSpawn("get_user_attempts", "", {
                 "user_id": username
               });
             case 1:
@@ -1475,7 +1475,7 @@ function Progress() {
                 setAttempts(resultAttempts.reports[0]);
               }
               _context9.n = 2;
-              return jacSpawn(null, "get_user_skills", {
+              return __jacSpawn("get_user_skills", "", {
                 "user_id": username
               });
             case 2:
